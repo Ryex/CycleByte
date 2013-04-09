@@ -24,7 +24,8 @@
 class CYCLEBYTE_API CycleByte {
 public:
 
-	CycleByte(const unsigned char* key, size_t size_key, unsigned int max_chunk_size);
+	CycleByte(const char* key, size_t size_key, unsigned int max_chunk_size);
+	~CycleByte();
 
 	// TODO: add IO versions
 	void encrypt(const unsigned char* in_data, unsigned char* out_data, unsigned long size);

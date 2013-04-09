@@ -14,12 +14,17 @@
 
 // This is the constructor of a class that has been exported.
 // see CycleByte.h for the class definition
-CycleByte::CycleByte(const unsigned char * key, size_t size_key, unsigned int max_chunk_size)
+CycleByte::CycleByte(const char* key, size_t size_key, unsigned int max_chunk_size)
 {
-	Key = (unsigned char *)key;
+	Key = new unsigned char[size_key];
+	memcpy(Key, key, size_key);
 	KeySize = size_key;
 	ChunkSize = max_chunk_size;
 	return;
+}
+
+CycleByte::~CycleByte(){
+	delete[] Key;
 }
 
 // encryptes an array of data to the out array

@@ -21,7 +21,7 @@ be sure to use the same `max_chunk_size` to encrypt and decrypt a message
     char* key = "IAmAnEncryptionKeyChangeMe";
     long key_size = strlen(key);
     int max_chunk_size = 10;
-    CycleByte cyc(static_cast<unsigned char*>key, key_size, max_chunk_size);
+    CycleByte cyc(key, key_size, max_chunk_size);
 
 Step 2) encrypt some data
 
@@ -57,7 +57,7 @@ be sure to use the same `max_chunk_size` to encrypt and decrypt a message
     char* key = "IAmAnEncryptionKeyChangeMe";
     long key_size = strlen(key);
     int max_chunk_size = 10;
-    CycleByte cyc(static_cast<unsigned char*>key, key_size, max_chunk_size);
+    CycleByte cyc(key, key_size, max_chunk_size);
 
 
 Step 2) decrypt some data
