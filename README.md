@@ -33,7 +33,7 @@ a copy encryption, you will need an array the same size as the data to be encryp
     char data[] = ";alksdhfp;oqnl;wkjnekjbqca;opsidfbqwlke"
     char result[40]
     int len = strlen(data);
-    cyc.encrypt(static_cast<unsigned char*>data, result, len);
+    cyc.encrypt(reinterpret_cast<unsigned char*>(data), result, len);
 
 
 an inplace encryption, your array will be modifyed to contain the encrypted version 
@@ -42,7 +42,7 @@ an inplace encryption, your array will be modifyed to contain the encrypted vers
 
     char data[] = ";alksdhfp;oqnl;wkjnekjbqca;opsidfbqwlke"
     int len = strlen(data);
-    cyc.encrypt_inplace(static_cast<unsigned char*>data, len);
+    cyc.encrypt_inplace(reinterpret_cast<unsigned char*>(data), len);
 
 
 ### Decryption
@@ -70,11 +70,11 @@ a copy decryption, you will need an array the same size as the data to be decryp
     char data[] = ";alksdhfp;oqnl;wkjnekjbqca;opsidfbqwlke"
     char result[40]
     int len = strlen(data);
-    cyc.encrypt(static_cast<unsigned char*>data, result, len);
+    cyc.encrypt(reinterpret_cast<unsigned char*>(data), result, len);
 
     // now to decrypt
     char decrypted[40]
-    cyc.decrypt(static_cast<unsigned char*>result, decrypted, len)
+    cyc.decrypt(reinterpret_cast<unsigned char*>(result), decrypted, len)
 
 
 an inplace encryption, your array will be modifyed to contain the encrypted version 
@@ -84,10 +84,10 @@ an inplace encryption, your array will be modifyed to contain the encrypted vers
     // encrypted data can use non printable charaters to lets encrypt some data then decrypt it
     char data[] = ";alksdhfp;oqnl;wkjnekjbqca;opsidfbqwlke"
     int len = strlen(data);
-    cyc.encrypt_inplace(static_cast<unsigned char*>data, len);
+    cyc.encrypt_inplace(reinterpret_cast<unsigned char*>(data), len);
 
     //inspect your data array, it is now encrypted
 
     // now to decrypt
     char decrypted[40]
-    cyc.decrypt_inplace(static_cast<unsigned char*>data, len)
+    cyc.decrypt_inplace(reinterpret_cast<unsigned char*>(data), len)
