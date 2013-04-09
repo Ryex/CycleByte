@@ -10,11 +10,18 @@ It uses an implementation of SHA1 and the Mersenne Twister pseudorandom number g
 
 ### Encryption
 
+
 Step 1) create an encryption
+ 
+the chunk_size is the maximum number of bytes in a copntinues section of encryption. is is sugested to set this size to be about 1/4 to 1/16 the size
+of the data to be encrypted. the smaller the number the more ties the encryption will change, the slower the encryption will happen, and the more theroeticly secure the data is.
+
+be sure to use the same `max_chunk_size` to encrypt and decrypt a message
 
     char* key = "IAmAnEncryptionKeyChangeMe";
     long key_size = strlen(key);
-    CycleByte cyc(static_cast<unsigned char*>key, key_size, chunk_size);
+    int max_chunk_size = 10;
+    CycleByte cyc(static_cast<unsigned char*>key, key_size, max_chunk_size);
 
 Step 2) encrypt some data
 
@@ -41,10 +48,16 @@ an inplace encryption, your array will be modifyed to contain the encrypted vers
 ### Decryption
 Step 1) create an encryption 
 
+the chunk_size is the maximum number of bytes in a copntinues section of encryption. is is sugested to set this size to be about 1/4 to 1/16 the size
+of the data to be encrypted. the smaller the number the more ties the encryption will change, the slower the encryption will happen, and the more theroeticly secure the data is.
+
+be sure to use the same `max_chunk_size` to encrypt and decrypt a message
+
 
     char* key = "IAmAnEncryptionKeyChangeMe";
     long key_size = strlen(key);
-    CycleByte cyc(static_cast<unsigned char*>key, key_size, chunk_size);
+    int max_chunk_size = 10;
+    CycleByte cyc(static_cast<unsigned char*>key, key_size, max_chunk_size);
 
 
 Step 2) decrypt some data
