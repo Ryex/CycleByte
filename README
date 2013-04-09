@@ -1,4 +1,4 @@
-= CycleByte
+=CycleByte
 
 
 A shifting Symmetric Encryption that uses the previous chunk of data in the encryption of the next.
@@ -6,9 +6,9 @@ A shifting Symmetric Encryption that uses the previous chunk of data in the encr
 It uses an implementation of SHA1 and the Mersenne Twister pseudorandom number generator
 
 
-== Usage
+==Usage
 
-=== Encryption
+===Encryption
 
 Step 1) create an encryption
 `
@@ -36,7 +36,7 @@ int len = strlen(data);
 cyc.encrypt_inplace(static_cast<unsigned char*>data, len);
 `
 
-=== Decryption
+===Decryption
 Step 1) create an encryption
 `
 char* key = "IAmAnEncryptionKeyChangeMe";
